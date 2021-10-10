@@ -1,0 +1,16 @@
+{{ define "header" }}
+    <h1> {{ .Title }} - {{ .Description }} </h1>
+    {{ partial "breadcrumb" . }}
+{{ end }}
+
+{{ define "main" }}
+    {{ .Content | default "No additional information given in RFC" }}
+
+    {{ with .Params.source }}
+        <p> <a href="{{ . }}"> Source </a> </p>
+    {{ end }}
+{{ end }}
+
+{{ define "template" }}
+    {{ partial "show-template" (dict "Which" .Kind "Template" "layouts/_default/single.html") }}
+{{ end }}

@@ -1,0 +1,11 @@
+<dl>
+    {{ range .Pages }}
+        <dt> <a href="{{ .Permalink }}"> {{ .Title }} </a> </dt>
+        <dd>
+            {{ .Description }}
+            {{ if and (ne .Params.source "https://www.rfc-editor.org/rfc/rfc5321#section-4.2.3") (not (hasPrefix .Params.source "https://www.rfc-editor.org/rfc/rfc3463.html")) }}
+                <a href="{{ .Params.source }}"> Source </a>
+            {{ end }}
+        </dd>
+    {{ end }}
+</dl>

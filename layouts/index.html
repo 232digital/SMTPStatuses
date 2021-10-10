@@ -1,0 +1,34 @@
+{{ define "header" }}
+    <h1> SMTP Reply Codes </h1>
+    <nav>
+        <p> Scroll to: </p>
+        {{ range .Site.Sections }}
+            <a href="#{{ .File.UniqueID }}"> {{ .Title }} </a>
+        {{ end }}
+    </nav>
+{{ end }}
+
+{{ define "main" }}
+    {{ range .Site.Sections }}
+        <article id="{{ .File.UniqueID }}">
+            <h2> <a href="{{ .Permalink }}"> {{ .Title }} </a> </h2>
+            {{ range .Sections }}
+                <section>
+                    <h3> <a href="{{ .Permalink }}"> {{ .Title }} </a> </h3>
+                    <dl>
+                        {{ range .Pages }}
+                            <dt> <a href="{{ .Permalink }}"> {{ .Title }} </a> </dt>
+                            <dd> {{ .Description }} </dd>
+                        {{ end }}
+                    </dl>
+                </section>
+            {{ end }}
+        </article>
+    {{ end }}
+
+    {{ .Content }}
+{{ end }}
+
+{{ define "template" }}
+    {{ partial "show-template" (dict "Which" .Kind "Template" "layouts/index.html") }}
+{{ end }}

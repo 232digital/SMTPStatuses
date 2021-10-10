@@ -1,0 +1,6 @@
+baseURL = 'http://local.smtpstatuses.com/'
+languageCode = 'en-us'
+title = 'SMTP Reply Codes'
+disableKinds = ['taxonomy', 'term']
+[params]
+    showTemplate = true

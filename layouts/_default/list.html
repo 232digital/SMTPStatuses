@@ -1,0 +1,20 @@
+{{ define "header" }}
+    <h1> {{ .Title }} </h1>
+    {{ partial "breadcrumb" . }}
+{{ end }}
+
+{{ define "main" }}
+    {{ .Content }}
+
+    {{ range .Sections }}
+        <section>
+            <h2> <a href="{{ .Permalink }}"> {{ .Title }} </a> </h2>
+            <blockquote cite="{{ .Params.source }}"> {{ .Content }} </blockquote>
+            {{ partial "page-list" . }}
+        </section>
+    {{ end }}
+{{ end }}
+
+{{ define "template" }}
+    {{ partial "show-template" (dict "Which" .Kind "Template" "layouts/_default/list.html") }}
+{{ end }}

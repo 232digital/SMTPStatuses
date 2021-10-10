@@ -1,0 +1,14 @@
+{{ define "header" }}
+    <h1> Uh Oh </h1>
+{{ end }}
+
+{{ define "main" }}
+    <p> Are we missing a status code? Let us know <a href="https://github.com/232digital/smtpstatuses/issues/new"> on Github. </a> </p>
+
+    <p> <a href="/"> Go Home </a> </p>
+{{ end }}
+
+{{ define "template" }}
+    {{ partial "show-template" (dict "Which" .Kind "Template" "layouts/404.html") }}
+{{ end }}
+

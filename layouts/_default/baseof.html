@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="{{ .Description }}">
+    <title>
+        {{ block "title" . }}
+            {{ .Site.Title }} - {{ .Title }}
+        {{ end }}
+    </title>
+
+    {{ $style := resources.Get "css/main.scss" | resources.ToCSS }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+  </head>
+
+  <body>
+    <header>
+        {{ block "header" . }}
+        {{ end }}
+    </header>
+    <main>
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+    <footer>
+        <p> All information rights belong to their authors as described in the cited RFCs. </p>
+        <p> Compiled by: <a href="https://232.digital"> 232 Digital. </a> </p>
+        <p> <a href="github.com/232digital/SMTPStatuses/issues/new"> Help fix mistakes on Github </a> </p>
+    </footer>
+    {{ if .Site.Params.showTemplate }}
+        {{ block "template" . }}{{ end }}
+    {{ end }}
+  </body>
+</html>

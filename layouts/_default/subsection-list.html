@@ -1,0 +1,15 @@
+{{ define "header" }}
+    <h1> {{ .Title }} </h1>
+    {{ partial "breadcrumb" . }}
+{{ end }}
+
+{{ define "main" }}
+    {{ .Content }}
+
+    {{ partial "page-list" . }}
+{{ end }}
+
+{{ define "template" }}
+    {{ partial "show-template" (dict "Which" .Kind "Template" "layouts/basic/subsection-list.html") }}
+{{ end }}
+
